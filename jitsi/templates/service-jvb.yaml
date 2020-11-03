@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "jitsi.fullname" . }}-jvb
+  labels:
+    {{- include "jitsi.labels" . | nindent 4 }}
+spec:
+  type: NodePort
+  ports:
+    - name: jvb-udp
+      port: {{ .Values.jitsi.jvb.port }}
+      targetPort: {{ .Values.jitsi.jvb.port }}
+      protocol: UDP
+  selector:
+    {{- include "jitsi.selectorLabels" . | nindent 4 }}
