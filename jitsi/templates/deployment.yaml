@@ -120,15 +120,13 @@ spec:
             - name: XMPP_SERVER
               value: {{ .Values.jitsi.xmppServer }}
             - name: DOCKER_HOST_ADDRESS
-              value: <Set the address for any node in the cluster here>
+              value: {{ include "jitsi.XMPP_DOMAIN" . }}
             - name: XMPP_DOMAIN
               value: {{ include "jitsi.XMPP_DOMAIN" . }}
             - name: XMPP_AUTH_DOMAIN
               value: {{ include "jitsi.XMPP_AUTH_DOMAIN" . }}
             - name: XMPP_INTERNAL_MUC_DOMAIN
               value: {{ include "jitsi.XMPP_INTERNAL_MUC_DOMAIN" . }}
-            - name: JVB_STUN_SERVERS
-              value: stun.l.google.com:19302,stun1.l.google.com:19302,stun2.l.google.com:19302
             - name: JICOFO_AUTH_USER
               value: {{ .Values.jitsi.jicofo.user }}
             - name: JVB_TCP_HARVESTER_DISABLED
