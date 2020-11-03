@@ -1,11 +1,5 @@
 ingress:
   enabled: true
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-  # kubernetes.io/tls-acme: "true"
-  hosts:
-    - host: jitsi.patrick-nuc7i7
-      paths: []
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
