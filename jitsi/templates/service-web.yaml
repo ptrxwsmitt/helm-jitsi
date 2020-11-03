@@ -3,8 +3,9 @@ kind: Service
 metadata:
   name: {{ include "jitsi.fullname" . }}
   labels:
-  {{- include "jitsi.labels" . | nindent 4 }}
+    {{- include "jitsi.labels" . | nindent 4 }}
 spec:
+  type: {{ .Values.service.type }}
   ports:
   - name: "http"
     port: {{ .Values.service.port }}
