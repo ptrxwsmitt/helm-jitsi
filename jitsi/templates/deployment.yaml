@@ -60,6 +60,16 @@ spec:
           image: jitsi/prosody
           imagePullPolicy: Always
           env:
+            {{- if .Values.jitsi.auth }}
+            - name: ENABLE_AUTH
+              value: '1'
+            - name: AUTH_TYPE
+              value: {{ .Values.jitsi.auth.type }}
+            {{- end}}
+            {{- if and (not .Values.jitsi.auth) (not .Values.jitsi.guests) }}
+            - name: ENABLE_GUESTS
+              value: '0'
+            {{- end}}
             - name: XMPP_DOMAIN
               value: {{ include "jitsi.XMPP_DOMAIN" . }}
             - name: XMPP_AUTH_DOMAIN
@@ -95,16 +105,6 @@ spec:
           image: jitsi/web
           imagePullPolicy: Always
           env:
-            {{- if .Values.jitsi.auth }}
-            - name: ENABLE_AUTH
-              value: '1'
-            - name: AUTH_TYPE
-              value: {{ .Values.jitsi.auth.type }}
-            {{- end}}
-            {{- if and (not .Values.jitsi.auth) (not .Values.jitsi.guests) }}
-            - name: ENABLE_GUESTS
-              value: '0'
-            {{- end}}
             - name: XMPP_SERVER
               value: {{ .Values.jitsi.xmppServer }}
             - name: XMPP_DOMAIN
