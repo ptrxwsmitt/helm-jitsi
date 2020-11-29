@@ -63,6 +63,10 @@ jitsi:
   xmppServer: localhost
   xmppDomain: meet.jitsi
   timeZone: America/Los_Angeles
+  auth:
+    enabled: true
+    type: internal
+  guests: false
   jicofo:
     user: focus
   jvb:
