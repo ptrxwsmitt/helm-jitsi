@@ -1,10 +1,18 @@
 ingress:
   enabled: true
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
-
 
 jitsi:
+  xmppServer: localhost
   xmppDomain: jitsi.patrick-nuc7i7
+  timeZone: Europe/Berlin
+  auth:
+    enabled: false
+    type: internal
+  guests: false
+  jicofo:
+    user: focus
+  jvb:
+    user: jvb
+    breweryMuc: jvbbrewery
+    port: 30300

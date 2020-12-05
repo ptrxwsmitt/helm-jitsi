@@ -64,9 +64,9 @@ jitsi:
   xmppDomain: meet.jitsi
   timeZone: America/Los_Angeles
   auth:
-    enabled: true
+    enabled: false
     type: internal
-  guests: true
+  guests: false
   jicofo:
     user: focus
   jvb:
