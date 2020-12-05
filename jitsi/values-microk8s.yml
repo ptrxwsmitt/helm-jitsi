@@ -1,6 +1,10 @@
 ingress:
   enabled: true
-  tls: []
+  tls: 
+    - hosts:
+      - jitsi.patrick-nuc7i7
+      secretName: ingress-certs
+        
 
 jitsi:
   xmppServer: localhost
