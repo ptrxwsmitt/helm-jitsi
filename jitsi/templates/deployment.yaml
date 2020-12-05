@@ -60,13 +60,13 @@ spec:
           image: jitsi/prosody:stable-5142-2
           imagePullPolicy: Always
           env:
-            {{- if .Values.jitsi.auth }}
+            {{- if .Values.jitsi.auth.enabled }}
             - name: ENABLE_AUTH
               value: '1'
             - name: AUTH_TYPE
               value: {{ .Values.jitsi.auth.type }}
             {{- end}}
-            {{- if and (not .Values.jitsi.auth) (not .Values.jitsi.guests) }}
+            {{- if and (not .Values.jitsi.auth.enabled) (not .Values.jitsi.guests) }}
             - name: ENABLE_GUESTS
               value: '0'
             {{- end}}

@@ -13,7 +13,7 @@ jitsi:
   auth:
     enabled: false
     type: internal
-  guests: false
+  guests: true
   jicofo:
     user: focus
   jvb:
